@@ -4,6 +4,7 @@
 ViewHandler::ViewHandler(std::shared_ptr<sf::RenderWindow> window)
 	: m_window(window)
 	, m_fps(0)
+	, m_demoName("Seek")
 {
 	m_font.loadFromFile("tahoma.ttf");
 	m_infoText.setFont(m_font);
@@ -19,9 +20,16 @@ void ViewHandler::draw()
 		m_infoClock.restart();
 	}		
 	
-	m_infoText.setString("FPS: " + std::to_string(m_fps));
+	m_infoText.setString(
+		"FPS: " + std::to_string(m_fps) +
+		"\nDemo: " + m_demoName);
 
 	m_window->draw(m_infoText);
 
 	m_fpsClock.restart();
+}
+
+void ViewHandler::setDemoName(std::string demoName)
+{
+	m_demoName = demoName;
 }

@@ -9,7 +9,8 @@ public:
 	explicit	ViewHandler(std::shared_ptr<sf::RenderWindow> window);
 	void		draw();
 
-	
+	void		setDemoName(std::string demoName);
+
 private:
 	std::shared_ptr<sf::RenderWindow>	m_window;
 	sf::Font							m_font;
@@ -17,5 +18,6 @@ private:
 	sf::Clock							m_infoClock;
 	sf::Text							m_infoText;
 	int									m_fps;
+	std::string							m_demoName;
 };
 

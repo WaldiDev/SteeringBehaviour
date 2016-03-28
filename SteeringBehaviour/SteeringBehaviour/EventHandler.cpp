@@ -1,9 +1,10 @@
 #include "EventHandler.h"
 #include "Seek.h"
 
-EventHandler::EventHandler(std::shared_ptr<sf::RenderWindow> window, SceneHandler& sceneHandler)
+EventHandler::EventHandler(std::shared_ptr<sf::RenderWindow> window, SceneHandler* sceneHandler, ViewHandler* viewHandler)
 	: m_window(window)
 	, m_sceneHandler(sceneHandler)
+	, m_viewHandler(viewHandler)
 {
 }
 
@@ -30,7 +31,9 @@ void EventHandler::update()
 		case sf::Event::MouseWheelScrolled: break;
 		case sf::Event::MouseButtonPressed: break;
 		case sf::Event::MouseButtonReleased: break;
-		case sf::Event::MouseMoved: break;
+		case sf::Event::MouseMoved: 
+			onMouseMoved(event.mouseMove.x, event.mouseMove.y);
+			break;
 		case sf::Event::MouseEntered: break;
 		case sf::Event::MouseLeft: break;
 		case sf::Event::JoystickButtonPressed: break;
@@ -52,6 +55,32 @@ void EventHandler::onKeyPressed(int key)
 {
 	if (key == sf::Keyboard::Num1)
 	{
-		m_sceneHandler.addUnit(std::make_shared<Seek>());
+		m_sceneHandler->addUnit(std::make_shared<Seek>(m_sceneHandler));
+		m_viewHandler->setDemoName("Seek");
 	}
+	else if (key == sf::Keyboard::Num2)
+	{
+		m_viewHandler->setDemoName("Flee");
+	}
+	else if (key == sf::Keyboard::Num3)
+	{
+		m_viewHandler->setDemoName("Arrive");
+	}
+	else if (key == sf::Keyboard::Num4)
+	{
+		m_viewHandler->setDemoName("Align");
+	}
+	else if (key == sf::Keyboard::Num5)
+	{
+		m_viewHandler->setDemoName("Separation");
+	}
+	else if (key == sf::Keyboard::Num6)
+	{
+		m_viewHandler->setDemoName("Velocity Matching");
+	}
+}
+
+void EventHandler::onMouseMoved(int mouseX, int mouseY)
+{
+	m_sceneHandler->setMousePos(sf::Vector2f((float)mouseX, (float)mouseY));
 }

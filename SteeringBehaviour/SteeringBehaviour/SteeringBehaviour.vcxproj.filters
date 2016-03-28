@@ -7,7 +7,9 @@
     <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="Unit.cpp" />
     <ClCompile Include="SceneHandler.cpp" />
-    <ClCompile Include="Seek.cpp" />
+    <ClCompile Include="Seek.cpp">
+      <Filter>AI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h" />
@@ -16,9 +18,16 @@
     <ClInclude Include="Unit.h" />
     <ClInclude Include="IBehaviour.h" />
     <ClInclude Include="SceneHandler.h" />
-    <ClInclude Include="Seek.h" />
+    <ClInclude Include="Seek.h">
+      <Filter>AI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="tahoma.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="AI">
+      <UniqueIdentifier>{d442049c-1a98-4ebc-83f3-58a2c0fe3637}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
 </Project>
