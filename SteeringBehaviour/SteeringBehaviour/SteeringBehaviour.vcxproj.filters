@@ -4,10 +4,19 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="World.cpp" />
     <ClCompile Include="ViewHandler.cpp" />
+    <ClCompile Include="EventHandler.cpp" />
+    <ClCompile Include="Unit.cpp" />
+    <ClCompile Include="SceneHandler.cpp" />
+    <ClCompile Include="Seek.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="World.h" />
     <ClInclude Include="ViewHandler.h" />
+    <ClInclude Include="EventHandler.h" />
+    <ClInclude Include="Unit.h" />
+    <ClInclude Include="IBehaviour.h" />
+    <ClInclude Include="SceneHandler.h" />
+    <ClInclude Include="Seek.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="tahoma.ttf" />

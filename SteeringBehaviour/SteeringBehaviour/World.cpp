@@ -3,6 +3,8 @@
 World::World(std::shared_ptr<sf::RenderWindow> window)
 	: m_window(window)
 	, m_viewHandler(window)
+	, m_sceneHandler(window)
+	, m_eventHandler(window, m_sceneHandler)
 {
 }
 
@@ -19,6 +21,7 @@ void World::run()
 
 void World::update(float delta)
 {
+	m_eventHandler.update();
 }
 
 void World::draw()

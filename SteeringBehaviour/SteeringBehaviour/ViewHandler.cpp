@@ -7,7 +7,7 @@ ViewHandler::ViewHandler(std::shared_ptr<sf::RenderWindow> window)
 {
 	m_font.loadFromFile("tahoma.ttf");
 	m_infoText.setFont(m_font);
-	m_infoText.setScale(0.6f, 0.6f);
+	m_infoText.setCharacterSize(14u);
 	m_infoText.setPosition(30.0f, 30.0f);
 }
 
@@ -20,6 +20,7 @@ void ViewHandler::draw()
 	}		
 	
 	m_infoText.setString("FPS: " + std::to_string(m_fps));
+
 	m_window->draw(m_infoText);
 
 	m_fpsClock.restart();
