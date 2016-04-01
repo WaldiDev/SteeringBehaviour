@@ -7,7 +7,7 @@
 class EventHandler
 {
 public:
-	EventHandler(std::shared_ptr<sf::RenderWindow> window, SceneHandler* sceneHandler, ViewHandler* viewHandler);
+	EventHandler(std::shared_ptr<sf::RenderWindow> window, SceneHandler* sceneHandler, ViewHandler* viewHandler, Behaviours* behaviours);
 	
 	void	update();
 
@@ -19,5 +19,6 @@ private:
 	std::shared_ptr<sf::RenderWindow>	m_window;
 	SceneHandler*						m_sceneHandler;
 	ViewHandler*						m_viewHandler;
+	Behaviours*							m_behaviours;
 };
 

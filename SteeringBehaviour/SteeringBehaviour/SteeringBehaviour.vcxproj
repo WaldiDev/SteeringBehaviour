@@ -154,25 +154,26 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Behaviours.cpp" />
     <ClCompile Include="EventHandler.cpp" />
+    <ClCompile Include="Formation.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="SceneHandler.cpp" />
-    <ClCompile Include="Seek.cpp" />
     <ClCompile Include="Unit.cpp" />
+    <ClCompile Include="Vec2.cpp" />
     <ClCompile Include="ViewHandler.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Behaviours.h" />
     <ClInclude Include="EventHandler.h" />
-    <ClInclude Include="IBehaviour.h" />
+    <ClInclude Include="Formation.h" />
+    <ClInclude Include="Helper.h" />
     <ClInclude Include="SceneHandler.h" />
-    <ClInclude Include="Seek.h" />
     <ClInclude Include="Unit.h" />
+    <ClInclude Include="Vec2.h" />
     <ClInclude Include="ViewHandler.h" />
     <ClInclude Include="World.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Font Include="tahoma.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -11,10 +11,11 @@ public:
 	void run();
 
 private:
-	std::shared_ptr<sf::RenderWindow>	m_window;
+	std::shared_ptr<sf::RenderWindow>	m_window;	
 	ViewHandler							m_viewHandler;
 	SceneHandler						m_sceneHandler;
-	EventHandler						m_eventHandler;
+	Behaviours*							m_behaviours;
+	EventHandler						m_eventHandler;	
 
 private:
 	void	update(float delta);

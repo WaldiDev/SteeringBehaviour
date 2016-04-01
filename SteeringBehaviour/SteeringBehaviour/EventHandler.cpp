@@ -1,10 +1,9 @@
 #include "EventHandler.h"
-#include "Seek.h"
-
-EventHandler::EventHandler(std::shared_ptr<sf::RenderWindow> window, SceneHandler* sceneHandler, ViewHandler* viewHandler)
+EventHandler::EventHandler(std::shared_ptr<sf::RenderWindow> window, SceneHandler* sceneHandler, ViewHandler* viewHandler, Behaviours* behaviours)
 	: m_window(window)
 	, m_sceneHandler(sceneHandler)
 	, m_viewHandler(viewHandler)
+	, m_behaviours(behaviours)
 {
 }
 
@@ -54,33 +53,76 @@ void EventHandler::update()
 void EventHandler::onKeyPressed(int key)
 {
 	if (key == sf::Keyboard::Num1)
-	{
-		m_sceneHandler->addUnit(std::make_shared<Seek>(m_sceneHandler));
+	{		
+		m_sceneHandler->addUnit(m_behaviours, GameState::SEEK);
 		m_viewHandler->setDemoName("Seek");
 	}
 	else if (key == sf::Keyboard::Num2)
 	{
+		m_sceneHandler->addUnit(m_behaviours, GameState::FLEE);
 		m_viewHandler->setDemoName("Flee");
 	}
 	else if (key == sf::Keyboard::Num3)
 	{
+		m_sceneHandler->addUnit(m_behaviours, GameState::ARRIVE);
 		m_viewHandler->setDemoName("Arrive");
 	}
 	else if (key == sf::Keyboard::Num4)
 	{
-		m_viewHandler->setDemoName("Align");
+		m_sceneHandler->addUnit(m_behaviours, GameState::WANDER);
+		m_viewHandler->setDemoName("Wander");
 	}
 	else if (key == sf::Keyboard::Num5)
 	{
-		m_viewHandler->setDemoName("Separation");
+		m_sceneHandler->addUnit(m_behaviours, GameState::PURSUIT);
+		m_viewHandler->setDemoName("Pursuit");
 	}
 	else if (key == sf::Keyboard::Num6)
 	{
-		m_viewHandler->setDemoName("Velocity Matching");
+		m_sceneHandler->addUnit(m_behaviours, GameState::EVADE);
+		m_viewHandler->setDemoName("Evade");
+	}
+	else if (key == sf::Keyboard::Num7)
+	{
+		m_sceneHandler->addUnit(m_behaviours, GameState::PATHFOLLOW);
+		m_viewHandler->setDemoName("PathFollow");
+	}
+	else if (key == sf::Keyboard::Num8)
+	{
+		m_sceneHandler->addUnit(m_behaviours, GameState::COLLISIONFOV);
+		m_viewHandler->setDemoName("Collision FOV");
+	}
+	else if (key == sf::Keyboard::Num9)
+	{
+		m_sceneHandler->addUnit(m_behaviours, GameState::COLLISIONPREDICTION);
+		m_viewHandler->setDemoName("Collision Prediction");
+	}
+	else if (key == sf::Keyboard::Num0)
+	{
+		m_sceneHandler->addUnit(m_behaviours, GameState::OBSTACLEAVOIDANCE);
+		m_viewHandler->setDemoName("Obstacle Avoidance");
+	}
+	else if (key == sf::Keyboard::S)
+	{
+		m_sceneHandler->addUnit(m_behaviours, GameState::SCENARIO);
+		m_viewHandler->setDemoName("Scenario");
+	}
+	else if (key == sf::Keyboard::P)
+	{
+		m_sceneHandler->togglePath();
+	}
+	else if (key == sf::Keyboard::O)
+	{
+		m_sceneHandler->toogleObstacle();
+	}
+	else if (key == sf::Keyboard::C)
+	{
+		m_sceneHandler->clearUnits();
+		m_viewHandler->setDemoName("Nothing");
 	}
 }
 
 void EventHandler::onMouseMoved(int mouseX, int mouseY)
 {
-	m_sceneHandler->setMousePos(sf::Vector2f((float)mouseX, (float)mouseY));
+	m_sceneHandler->setMousePos(Vec2((float)mouseX, (float)mouseY));
 }

@@ -1,10 +1,11 @@
 #include "World.h"
 
 World::World(std::shared_ptr<sf::RenderWindow> window)
-	: m_window(window)
+	: m_window(window)	
 	, m_viewHandler(window)
 	, m_sceneHandler(window)
-	, m_eventHandler(window, &m_sceneHandler, &m_viewHandler)
+	, m_behaviours(new Behaviours(&m_sceneHandler))
+	, m_eventHandler(window, &m_sceneHandler, &m_viewHandler, m_behaviours)
 {
 }
 
